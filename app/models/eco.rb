@@ -1,0 +1,2 @@
+class Eco < ApplicationRecord
+end
