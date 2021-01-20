@@ -1,0 +1,9 @@
+<h1>エコアクション一覧</h1>
+
+<ul>
+  <% @ecos.each do |eco| %>
+    <li><%= link_to eco.action, edit_eco_path(eco) %> | <%= eco.co2 %>グラム</li>
+  <% end %>
+</ul>
+
+<%= link_to '新規エコアクションの投稿', new_eco_path %>

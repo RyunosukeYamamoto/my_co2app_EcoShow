@@ -1,0 +1,12 @@
+<h1>id: <%= @eco.id %>のエコアクション編集ページ</h1>
+
+<%= form_with(model: @eco, local: true) do |f| %>
+  <%= f.label :action, 'エコアクション' %>
+  <%= f.text_field :action %>
+  <%= f.label :co2, 'CO2削減量' %>
+  <%= f.number_field :co2 %>
+  
+  <%= f.submit '投稿' %>
+<% end %>
+
+<%= link_to '一覧に戻る', ecos_path %>
