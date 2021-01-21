@@ -1,13 +1,5 @@
 <%= form_with(model: eco, local: true) do |f| %>
-  <% if eco.errors.any? %>
-    <div id='error_explanation'>
-      <ul>
-        <% eco.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'layouts/error_messages', model: f.object %>
   
   <%= f.label :action, 'エコアクション' %>
   <%= f.text_field :action %>
