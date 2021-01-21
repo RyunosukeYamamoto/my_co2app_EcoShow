@@ -1,5 +1,9 @@
 <h1>エコアクション一覧</h1>
 
+<h2><%= @total_co2 %></h2>
+<h2><%= @kiro %>キロ走行</h2>
+<h2><%= car_distance( @kiro ) %></h2>
+
 <ul>
   <% @ecos.each do |eco| %>
     <li><%= link_to eco.action, edit_eco_path(eco) %> | <%= eco.co2 %>グラム</li>
