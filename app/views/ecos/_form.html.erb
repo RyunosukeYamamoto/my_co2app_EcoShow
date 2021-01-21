@@ -1,4 +1,14 @@
 <%= form_with(model: eco, local: true) do |f| %>
+  <% if eco.errors.any? %>
+    <div id='error_explanation'>
+      <ul>
+        <% eco.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <%= f.label :action, 'エコアクション' %>
   <%= f.text_field :action %>
   <%= f.label :co2, 'CO2削減量' %>
