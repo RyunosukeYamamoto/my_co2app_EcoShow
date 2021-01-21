@@ -2,7 +2,7 @@ class EcosController < ApplicationController
   before_action :set_eco, only: [:edit, :update]
   
   def index
-    @ecos = Eco.all
+    @ecos = Eco.order(id: :desc).page(params[:page]).per(15)
   end
   
   def new
