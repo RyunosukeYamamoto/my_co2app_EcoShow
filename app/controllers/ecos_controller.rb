@@ -1,4 +1,6 @@
 class EcosController < ApplicationController
+  before_action :set_eco, only: [:edit, :update]
+  
   def index
     @ecos = Eco.all
   end
@@ -20,12 +22,9 @@ class EcosController < ApplicationController
   end
   
   def edit
-    @eco = Eco.find(params[:id])
   end
   
   def update
-    @eco = Eco.find(params[:id])
-    
     if @eco.update(eco_params)
       flash[:success] = 'エコアクションは正常に更新されました'
       redirect_to ecos_url
@@ -39,6 +38,10 @@ class EcosController < ApplicationController
   end
   
   private
+  
+  def set_eco
+    @eco = Eco.find(params[:id])
+  end
   
   def eco_params
     params.require(:eco).permit(:action, :co2)
