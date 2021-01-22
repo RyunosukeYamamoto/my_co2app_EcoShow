@@ -11,6 +11,11 @@
   
   <h1>マイエコアクション一覧</h1>
   
+  <p><%= @count_ecos %>個のエコアクション</p>
+    <h2><%= @my_total_co2 %></h2>
+    <h2><%= @my_kiro %>キロ走行</h2>
+    <h2><%= @my_total_car_distance %></h2>
+  
   <%= render 'ecos/ecos', ecos: @my_ecos %>
 <% else %>
   <%= link_to 'Sign up now!', signup_path %>
@@ -22,7 +27,7 @@
 
 <h2><%= @total_co2 %></h2>
 <h2><%= @kiro %>キロ走行</h2>
-<h2><%= car_distance( @kiro ) %></h2>
+<h2><%= @total_car_distance %></h2>
 
 <%= render 'ecos/ecos', ecos: @ecos %>
 
