@@ -10,6 +10,7 @@
         
         <% if logged_in? %>
           <% if current_user == eco.user %>
+            <%= link_to '編集', edit_eco_path(eco) %>
             <%= link_to 'Delete', eco, method: :delete, data: { confirm: 'You sure?' } %>
           <% end %>
         <% end %>
