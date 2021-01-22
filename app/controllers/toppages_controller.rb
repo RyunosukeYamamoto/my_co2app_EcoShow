@@ -9,7 +9,6 @@ class ToppagesController < ApplicationController
       @my_ecos = current_user.ecos.order(id: :desc).page(params[:page])
       @my_total_co2 = @my_ecos.all.sum(:co2)
       @my_kiro = @my_total_co2 / 230
-      @my_eco = current_user.ecos.build  # form_with用
       counts(current_user)
       @my_total_car_distance = car_distance(@my_kiro) # my到達地点の格納
     end

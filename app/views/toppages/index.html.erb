@@ -1,34 +1,26 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
-  
-  <%= link_to 'Logout', logout_path, method: :delete %>
-  
-  <%= form_with(model: @my_eco, local: true) do |f| %>
-    <%= f.text_field :action %>
-    <%= f.number_field :co2 %>
-    <%= f.submit 'Post' %>
-  <% end %>
-  
-  <h1>マイエコアクション一覧</h1>
-  
-  <p><%= @count_ecos %>個のエコアクション</p>
+  <div class='my_eco_action'>
+    <h1>マイエコアクション一覧</h1>
+    
+    <h2><%= @count_ecos %>個のエコアクション</h2>
     <h2><%= @my_total_co2 %></h2>
     <h2><%= @my_kiro %>キロ走行</h2>
     <h2><%= @my_total_car_distance %></h2>
-  
-  <%= render 'ecos/ecos', ecos: @my_ecos %>
-<% else %>
-  <%= link_to 'Sign up now!', signup_path %>
-  <%= link_to 'Sign in', login_path %>
+    
+    <%= render 'ecos/ecos', ecos: @my_ecos %>
+    
+  </div>
 <% end %>
 
-
-<h1>エコアクション一覧</h1>
-
-<h2><%= @total_co2 %></h2>
-<h2><%= @kiro %>キロ走行</h2>
-<h2><%= @total_car_distance %></h2>
-
-<%= render 'ecos/ecos', ecos: @ecos %>
+<div class='total_eco_action'>
+  <h1>総エコアクション一覧</h1>
+  
+  <h2><%= @total_co2 %></h2>
+  <h2><%= @kiro %>キロ走行</h2>
+  <h2><%= @total_car_distance %></h2>
+  
+  <%= render 'ecos/ecos', ecos: @ecos %>
+  
+</div>
 
 <%= link_to '新規エコアクションの投稿', new_eco_path %>

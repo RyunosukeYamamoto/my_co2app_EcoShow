@@ -1,21 +1,29 @@
-<ul>
+<table class='table table-striped table-bordered mt-3'>
+  <tr><th>ユーザ</th><th>エコアクション</th><th>CO2削減量</th><th></th><th></th></tr>
   <% ecos.each do |eco| %>
-    <li>
-      <div>
+    <tr>
+      <td>
         <% if eco.user.present? %>
           <%= eco.user.name %>
         <% end %>
-        <%= eco.action %>
-        <%= eco.co2 %>
+      </td>
+      
+      <td><%= eco.action %></td>
+      
+      <td><%= eco.co2 %></td>
+      
+      <% if logged_in? && current_user == eco.user %>
+        <td>
+          <%= link_to '編集', edit_eco_path(eco) %>
+        </td>
         
-        <% if logged_in? %>
-          <% if current_user == eco.user %>
-            <%= link_to '編集', edit_eco_path(eco) %>
-            <%= link_to 'Delete', eco, method: :delete, data: { confirm: 'You sure?' } %>
-          <% end %>
-        <% end %>
-      </div>
-    </li>
+        <td>
+          <%= link_to 'Delete', eco, method: :delete, data: { confirm: 'You sure?' } %>
+        </td>
+      <% else %>
+        <td></td><td></td>
+      <% end %>
+    </tr>
   <% end %>
+</table>
   <%= paginate ecos %>
-</ul>
