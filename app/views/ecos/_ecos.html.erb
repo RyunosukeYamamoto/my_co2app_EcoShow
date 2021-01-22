@@ -1,0 +1,20 @@
+<ul>
+  <% ecos.each do |eco| %>
+    <li>
+      <div>
+        <% if eco.user.present? %>
+          <%= eco.user.name %>
+        <% end %>
+        <%= eco.action %>
+        <%= eco.co2 %>
+        
+        <% if logged_in? %>
+          <% if current_user == eco.user %>
+            <%= link_to 'Delete', eco, method: :delete, data: { confirm: 'You sure?' } %>
+          <% end %>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate ecos %>
+</ul>
