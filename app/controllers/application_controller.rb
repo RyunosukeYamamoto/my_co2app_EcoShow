@@ -28,6 +28,5 @@ class ApplicationController < ActionController::Base
     else
       @prace = '府中'
     end
-    return @prace
   end
 end

@@ -13,6 +13,6 @@ class ToppagesController < ApplicationController
     @my_total_co2 = @my_ecos.all.sum(:co2)
     @my_kiro = @my_total_co2 / 230
     counts(current_user)
-    @my_total_car_distance = car_distance(@my_kiro) # my到達地点の格納
+    car_distance(@my_kiro) # my到達地点の格納
   end
 end

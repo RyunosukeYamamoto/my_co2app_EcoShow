@@ -1,7 +1,18 @@
-<h2><%= @count_ecos %>個のエコアクション</h2>
-<h2><%= @my_total_co2 %></h2>
-<h2><%= @my_kiro %>キロ走行</h2>
-<h2><%= @my_total_car_distance %></h2>
+<div style='float:left; width:40%;'>
+  <h2><%= @count_ecos %>個のエコアクション</h2>
+  <h2><%= @my_total_co2 %>グラムのCO2削減</h2>
+  <h2><%= @my_kiro %>キロ走行</h2>
+  <h2>大阪(500キロ)を目指そう！</h2>
+  <h2>今は<%= @prace%></h2>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: <%= @my_kiro %>%" aria-valuenow="<%= @my_kiro %>" aria-valuemin="0" aria-valuemax="500"></div>
+  </div>
+</div>
+
+<div style='float:left; width:60%;'>
+  <img src="/assets/<%= @prace %>.jpg" alt="<%= @prace %>の画像" width="60%" height="60%">
+</div>
+<div style='clear:both;'></div>
 
 <div class='col-sm-8'>
   <ul class='nav nav-tabs nav-justified mb-3'>
