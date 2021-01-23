@@ -1,0 +1,18 @@
+<h2><%= @count_ecos %>個のエコアクション</h2>
+<h2><%= @my_total_co2 %></h2>
+<h2><%= @my_kiro %>キロ走行</h2>
+<h2><%= @my_total_car_distance %></h2>
+
+<div class='col-sm-8'>
+  <ul class='nav nav-tabs nav-justified mb-3'>
+    
+    <li class='nav-item'><a href="<%= my_index_path %>" class="nav-link <%= 'active' if current_page?(my_index_path) %>">MYエコアクション<span class="badge badge-secondary"><%= @count_ecos %></span></a></li>
+    
+    <li class="nav-item"><a href="<%= root_path %>" class="nav-link <%= 'active' if current_page?(root_path) %>">総エコアクション</a></li>
+     
+  </ul>
+  
+  <%= render 'ecos/ecos', ecos: @my_ecos %>
+  
+</div>
+<%= link_to '新規エコアクションの投稿', new_eco_path %>
