@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   
   resources :ecos, except: [:index, :show]
-  resources :users, only: [:show, :create]
+  resources :users, only: [:show, :create, :edit, :update]
 end

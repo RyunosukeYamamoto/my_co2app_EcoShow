@@ -1,27 +1,24 @@
-<h2><%= @total_co2 %></h2>
-<h2><%= @kiro %>キロ走行</h2>
-<h2><%= @total_car_distance %></h2>
-
-
-<div class='col-sm-8'>
-  <ul class='nav nav-tabs nav-justified mb-3'>
-    <% if logged_in? %>
-    
-      <li class='nav-item'><a href="<%= my_index_path %>" class="nav-link <%= 'active' if current_page?(my_index_path) %>">MYエコアクション<span class="badge badge-secondary"><%= @count_ecos %></span></a></li>
-    
-    <% end %>
-    
-    <li class="nav-item"><a href="<%= root_path %>" class="nav-link <%= 'active' if current_page?(root_path) %>">総エコアクション</a></li>
-     
-  </ul>
-  
-  <%= render 'ecos/ecos', ecos: @ecos %>
-  
-  
+<div class='catch'>
+  <img src="/assets/風車.jpg" alt="風車の画像">
+  <div class='letter'>
+    <h2><%= @total_co2 %>グラム<%= @kiro %>キロ走行<%= @prace %></h2>
+  </div>
 </div>
 
-<% if logged_in? %>
-  <%= link_to '新規エコアクションの投稿', new_eco_path %>
-<% else %>
-  <%= link_to 'ログインせずにエコアクションを投稿', new_eco_path %>
-<% end %>
+<div class='row'>
+  <div class='col-md-8 offset-md-2'>
+    <ul class='nav nav-tabs nav-justified mb-3'>
+      <% if logged_in? %>
+      
+        <li class='nav-item'><a href="<%= my_index_path %>" class="nav-link <%= 'active' if current_page?(my_index_path) %>">MYエコアクション<span class="badge badge-secondary"><%= @count_ecos %></span></a></li>
+      
+      <% end %>
+      
+      <li class="nav-item"><a href="<%= root_path %>" class="nav-link <%= 'active' if current_page?(root_path) %>">総エコアクション</a></li>
+       
+    </ul>
+    
+    <%= render 'ecos/ecos', ecos: @ecos %>
+    
+  </div>
+</div>

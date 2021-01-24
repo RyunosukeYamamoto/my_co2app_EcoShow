@@ -1,11 +1,7 @@
-<div class='text-center'>
-  <h1>Signup</h1>
-</div>
-
 <div class='row'>
   <div class='col-sm-6 offset-sm-3'>
     
-    <%= form_with(model: @user, local: true) do |f| %>
+    <%= form_with(model: current_user, local: true) do |f| %>
     
     <%= render 'layouts/error_messages', model: f.object %>
   
@@ -28,10 +24,14 @@
         <%= f.label :password_confirmation, 'Confirmation' %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
+      
+      <div class='form-group'>
+          <%=f.label :goal, '目標' %>
+          <%= f.select :goal, [["大阪(難易度5)", "大阪"], ["琵琶湖(難易度4)", "琵琶湖"], ["愛知(難易度3)", "愛知"], ["富士山(難易度2)", "富士山"], ["相模原(難易度1)", "相模原"]], include_blank: "選択して下さい" %>
+      </div>
   
       <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
       
     <% end %>
   </div>
 </div>
-  

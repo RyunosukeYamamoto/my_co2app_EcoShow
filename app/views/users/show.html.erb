@@ -1,3 +1,7 @@
-<h1><%= @user.name %></h1>
+<h1><%= current_user.name %></h1>
+<% if current_user.goal.present? %>
+    <h1><%= current_user.goal %></h1>
+<% end %>
 
+<%= link_to 'プロフィールを編集する', edit_user_path(current_user) %>
 <%= link_to 'トップ画面に戻る', root_path %>
