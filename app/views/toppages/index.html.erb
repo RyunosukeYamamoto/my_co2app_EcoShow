@@ -1,12 +1,14 @@
 <div class='catch'>
-  <img src="/assets/風車.jpg" alt="風車の画像">
+  <img src="/assets/都内.jpg" alt="風車の画像">
   <div class='letter'>
-    <h2><%= @total_co2 %>グラム<%= @kiro %>キロ走行<%= @prace %></h2>
+    みんなの記録<br>
+    CO2:<%= @total_co2 %>グラム<br>
+    走行距離:<%= @kiro %>キロ&gt;<%= @prace %>
   </div>
 </div>
 
 <div class='row'>
-  <div class='col-md-8 offset-md-2'>
+  <div class='col-md-6 offset-md-3'>
     <ul class='nav nav-tabs nav-justified mb-3'>
       <% if logged_in? %>
       

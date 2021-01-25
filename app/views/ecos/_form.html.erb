@@ -1,27 +1,34 @@
-<%= form_with(model: eco, local: true) do |f| %>
-  <%= render 'layouts/error_messages', model: f.object %>
-  
-  <div class='form-group'>
-    <%= f.label :action, 'エコアクション' %>
-    <%= f.text_field :action %>
+<div class='row mt-4'>
+  <div class='col-lg-4 offset-lg-1'>
+    <%= form_with(model: eco, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class='form-group'>
+        <%= f.label :action, 'エコアクション' %>
+        <%= f.text_field :action, class: 'form-control' %>
+      </div>
+      
+      <div class='form-group'>
+        <%= f.label :co2, 'CO2削減量' %>
+        <%= f.number_field :co2, class: 'form-control' %>
+      </div>
+      
+      <%= f.submit '投稿', class: 'btn btn-primary' %>
+    <% end %>
   </div>
   
-  <div class='form-group'>
-    <%= f.label :co2, 'CO2削減量' %>
-    <%= f.number_field :co2 %>
+  <div class="col-lg-4">
+    <table class="table table-striped table-bordered mt-3">
+      <tr><th>参考アクション</th><th>参考CO2削減量</th></tr>
+      <tr><td>1キロ車に乗らない</td><td>230g</td></tr>
+      <tr><td>レジ袋1枚もらわない</td><td>60g</td></tr>
+      <tr><td>ストーブ1°C下げる</td><td>1120g</td></tr>
+      <tr><td>エアコン1°C上げる</td><td>80g</td></tr>
+      <tr><td>アイドリングストップ5分</td><td>150g</td></tr>
+      <tr><td>Eスタート(5秒で20キロまで加速)</td><td>530g</td></tr>
+      <tr><td>1日トイレの蓋を閉める</td><td>70g</td></tr>
+      <tr><td>お風呂の残り湯で1回洗濯</td><td>20g</td></tr>
+    </table>
   </div>
-  
-  <%= f.submit '投稿', class: 'btn btn-primary' %>
-<% end %>
-  
-<table class="table table-striped table-bordered mt-3">
-  <tr><th>参考アクション</th><th>参考CO2削減量</th></tr>
-  <tr><td>1キロ車に乗らない</td><td>230g</td></tr>
-  <tr><td>レジ袋1枚もらわない</td><td>60g</td></tr>
-  <tr><td>ストーブ1°C下げる</td><td>1120g</td></tr>
-  <tr><td>エアコン1°C上げる</td><td>80g</td></tr>
-  <tr><td>アイドリングストップ5分</td><td>150g</td></tr>
-  <tr><td>Eスタート(5秒で20キロまで加速)</td><td>530g</td></tr>
-  <tr><td>1日トイレの蓋を閉める</td><td>70g</td></tr>
-  <tr><td>お風呂の残り湯で1回洗濯</td><td>20g</td></tr>
-</table>
+
+</div>

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :edit, :update]
   
   def show
+    @my_ecos = current_user.ecos.order(id: :desc).page(params[:page]).per(15)
   end
 
   def new
@@ -25,10 +26,10 @@ class UsersController < ApplicationController
   
   def update
     if current_user.update(user_params)
-      flash[:success] = 'プロフィールが変更されました'
+      flash[:success] = '変更されました'
       redirect_to current_user
     else
-      flash.now[:danger] = 'プロフィールは変更されませんでした'
+      flash.now[:danger] = '変更されませんでした'
       render :edit
     end
   end

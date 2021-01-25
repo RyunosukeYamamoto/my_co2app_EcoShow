@@ -25,8 +25,10 @@ class ApplicationController < ActionController::Base
       @prace = '富士山'
     elsif x >= 50
       @prace = '相模原'
-    else
+    elsif x >= 20
       @prace = '府中'
+    else
+      @prace = '都内'
     end
   end
 end

@@ -1,7 +1,26 @@
-<h1><%= current_user.name %></h1>
-<% if current_user.goal.present? %>
-    <h1><%= current_user.goal %></h1>
-<% end %>
+<div class='row'>
 
-<%= link_to 'プロフィールを編集する', edit_user_path(current_user) %>
-<%= link_to 'トップ画面に戻る', root_path %>
+  <div class='col-md-4 offset-md-2'>
+  
+    <h1><%= current_user.name %>  <%= link_to 'ユーザ情報を編集する', edit_user_path(current_user), class: 'btn btn-outline-danger' %></h1>
+    
+    <%= form_with(model: current_user, local: true) do |f| %>
+        
+      <%= render 'layouts/error_messages', model: f.object %>
+          
+      <div class='form-group'>
+        <%=f.label :goal, '目標' %>
+        <%= f.select :goal, [["大阪(難易度5)", "大阪"], ["琵琶湖(難易度4)", "琵琶湖"], ["愛知(難易度3)", "愛知"], ["富士山(難易度2)", "富士山"], ["相模原(難易度1)", "相模原"]], include_blank: "新宿がスタート", class: "form-control" %>
+        <%= f.submit '登録', class: 'btn btn-outline-primary' %>
+      </div>
+          
+    <% end %>
+    
+  </div>
+  
+  <div class='col-md-4'>
+    <%= render 'ecos/ecos', ecos: @my_ecos %>
+  </div>
+  
+</div>
+

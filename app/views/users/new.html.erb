@@ -29,9 +29,11 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
   
-      <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
+      <%= f.submit 'signup', class: 'btn btn-primary btn-block' %>
       
     <% end %>
   </div>
 </div>
+
+<p style='text-align: center;' class= 'mt-4'>already have? <%= link_to 'Log in', login_path %></p>
   

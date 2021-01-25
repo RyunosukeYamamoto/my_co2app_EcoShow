@@ -1,25 +1,28 @@
 <div class='catch'>
   <img src="/assets/<%= @prace %>.jpg" alt="<%= @prace %>の画像">
   <div class='letter'>
-    <h2><%= @my_total_co2 %>グラム<%= @my_kiro %>キロ<%= @prace %></h2>
+    自分の記録<br>
+    CO2:<%= @my_total_co2 %>グラム<br>
+    走行距離:<%= @my_kiro %>キロ&gt;<%= @prace %>
     
     <% if current_user.goal.present? %>
+      <br>
       <% if @my_kiro >= goal_to_kiro(current_user.goal) %>
-        <h2>おめでとう目標達成！</h2>
+        <span style='color:red'>おめでとう目標達成！</span><br>
       <% else %>
-        <h2><%= current_user.goal %>を目指そう</h2>
+        目標:<%= current_user.goal %><br>
       <% end %>
-      
+        
       <div class="progress">
         <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= @my_progress %>%" aria-valuenow="<%= @my_progress %>" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
-    
     <% end %>
+      
   </div>
 </div>
 
 <div class='row'>
-  <div class='col-md-8 offset-md-2'>
+  <div class='col-md-6 offset-md-3'>
     
     <ul class='nav nav-tabs nav-justified mb-3'>
       <li class='nav-item'><a href="<%= my_index_path %>" class="nav-link <%= 'active' if current_page?(my_index_path) %>">MYエコアクション<span class="badge badge-secondary"><%= @count_ecos %></span></a></li>
