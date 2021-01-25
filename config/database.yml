@@ -47,8 +47,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: eco-show_production
-  username: eco-show
-  password: <%= ENV['ECO-SHOW_DATABASE_PASSWORD'] %>
